@@ -1,0 +1,14 @@
+---
+interface Props {
+  text?: string;
+  className?: string;
+}
+
+const { text = "sin imagen", className = "" } = Astro.props;
+---
+
+<div class:list={["placeholder-img", className]}>
+  <slot>
+    <span>{text}</span>
+  </slot>
+</div>

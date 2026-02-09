@@ -1,0 +1,62 @@
+---
+const events = [
+  {
+    title: "Germinación Optimizada",
+    desc: "Ajuste de temperatura y humedad para reducir el tiempo de brote en un 40%.",
+    time: "Día 1-7",
+  },
+  {
+    title: "Fortalecimiento de Raíz",
+    desc: "Estimulación por micro-frecuencias para desarrollar un sistema radicular robusto.",
+    time: "Día 8-20",
+  },
+  {
+    title: "Floración Programada",
+    desc: "Cambio de espectro lumínico para inducir una floración más intensa y duradera.",
+    time: "Día 21+",
+  },
+];
+---
+
+<section id="timeline" class="py-24 bg-secondary/30">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">El Ciclo de Vida</h2>
+      <p class="text-muted-foreground">
+        Evolución supervisada por algoritmos de inteligencia predictiva.
+      </p>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto">
+      <div
+        class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-primary/20 -translate-x-1/2 hidden md:block"
+      >
+      </div>
+
+      <div class="space-y-12">
+        {
+          events.map((event, index) => (
+            <div
+              id={`timeline-step-${index + 1}`}
+              class={`relative flex items-center justify-between md:odd:flex-row-reverse group`}
+            >
+              <div class="flex-1 hidden md:block" />
+
+              <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
+
+              <div class="flex-1 pl-16 md:pl-0 md:group-odd:pr-16 md:group-even:pl-16">
+                <div class="bg-card p-6 rounded-2xl border border-border">
+                  <span class="text-xs font-bold text-primary mb-2 block">
+                    {event.time}
+                  </span>
+                  <h3 class="text-xl font-bold mb-2">{event.title}</h3>
+                  <p class="text-muted-foreground text-sm">{event.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

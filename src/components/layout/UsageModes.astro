@@ -1,0 +1,173 @@
+---
+import { Image } from "astro:assets";
+import Card from "../ui/Card.astro";
+import tropicalImg from "../../assets/Tropical.png";
+import desertImg from "../../assets/Desert.png";
+import hibernateImg from "../../assets/Hibernate.png";
+
+const modes = [
+  {
+    id: "tropical",
+    name: "Selva Tropical",
+    desc: "Simula las condiciones del Amazonas. Alta humedad, luz filtrada y riego constante por goteo.",
+    image: tropicalImg,
+    alt: "Simulación de ecosistema tropical para plantas con humedad y temperatura optimizada por IA",
+  },
+  {
+    id: "desertic",
+    name: "Modo Desértico",
+    desc: "Para cactus y suculentas. Luz intensa de espectro completo y humedad mínima controlada.",
+    image: desertImg,
+    alt: "Modo desértico con iluminación de espectro completo y baja humedad para suculentas",
+  },
+  {
+    id: "recovery",
+    name: "Recuperación",
+    desc: "Protocolo de emergencia para plantas enfermas. Luz reparadora y nutrientes concentrados.",
+    image: hibernateImg,
+    alt: "Protocolo de recuperación de plantas con iluminación de espectro curativo y nutrición controlada",
+  },
+];
+---
+
+<section id="modes" class="py-24 bg-background">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+        Simulación de Entornos
+      </h2>
+      <p class="text-muted-foreground text-lg">
+        Adapta el microclima a las necesidades exactas de tu especie.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-4 space-y-4">
+        {
+          modes.map((mode) => (
+            <button
+              class="mode-tab w-full text-left p-6 rounded-2xl border border-border/50 bg-secondary/10 hover:bg-secondary/20 transition-all duration-300 group overflow-hidden relative"
+              data-mode={mode.id}
+            >
+              <div class="relative z-10">
+                <h3 class="font-bold text-xl mb-2 group-hover:text-primary transition-colors">
+                  {mode.name}
+                </h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">
+                  {mode.desc}
+                </p>
+              </div>
+              <div class="absolute right-0 top-0 bottom-0 w-1 bg-primary opacity-0 group-[.active]:opacity-100 transition-opacity" />
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="lg:col-span-8">
+        <Card className="h-[500px] overflow-hidden relative bg-secondary/30">
+          {
+            modes.map((mode, index) => (
+              <div
+                class:list={[
+                  "mode-content absolute inset-0 transition-all duration-700 ease-in-out py-4 px-4",
+                  index === 0
+                    ? "opacity-100 scale-100 pointer-events-auto"
+                    : "opacity-0 scale-95 pointer-events-none",
+                ]}
+                id={`content-${mode.id}`}
+              >
+                <Image
+                  src={mode.image}
+                  alt={mode.alt}
+                  class="w-full h-full object-cover rounded-xl"
+                />
+                <div class="absolute bottom-10 left-10 p-6 bg-background/40 backdrop-blur-md rounded-2xl border border-white/10 max-w-sm">
+                  <p class="text-xs uppercase tracking-widest text-primary font-bold mb-2">
+                    Simulación Activa
+                  </p>
+                  <h4 class="text-2xl font-bold mb-2">{mode.name}</h4>
+                  <div class="flex gap-4">
+                    <div class="text-center">
+                      <p class="text-[10px] text-muted-foreground uppercase">
+                        Humedad
+                      </p>
+                      <p class="font-mono text-primary font-bold">
+                        {mode.id === "tropical"
+                          ? "85%"
+                          : mode.id === "desertic"
+                            ? "12%"
+                            : "45%"}
+                      </p>
+                    </div>
+                    <div class="text-center border-l border-white/10 pl-4">
+                      <p class="text-[10px] text-muted-foreground uppercase">
+                        Luz
+                      </p>
+                      <p class="font-mono text-primary font-bold">
+                        {mode.id === "tropical"
+                          ? "Filtrada"
+                          : mode.id === "desertic"
+                            ? "Directa"
+                            : "Suave"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll(".mode-tab");
+  const contents = document.querySelectorAll(".mode-content");
+
+  const updateMode = (targetId: string) => {
+    tabs.forEach((tab) => {
+      if (tab.getAttribute("data-mode") === targetId) {
+        tab.classList.add("active", "border-primary/50", "bg-primary/5");
+      } else {
+        tab.classList.remove("active", "border-primary/50", "bg-primary/5");
+      }
+    });
+
+    contents.forEach((content) => {
+      if (content.id === `content-${targetId}`) {
+        content.classList.remove(
+          "opacity-0",
+          "scale-95",
+          "pointer-events-none",
+        );
+        content.classList.add(
+          "opacity-100",
+          "scale-100",
+          "pointer-events-auto",
+        );
+      } else {
+        content.classList.add("opacity-0", "scale-95", "pointer-events-none");
+        content.classList.remove(
+          "opacity-100",
+          "scale-100",
+          "pointer-events-auto",
+        );
+      }
+    });
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const mode = tab.getAttribute("data-mode");
+      if (mode) updateMode(mode);
+    });
+  });
+
+  // Init
+  if (tabs.length > 0) {
+    const firstMode = tabs[0].getAttribute("data-mode");
+    if (firstMode) updateMode(firstMode);
+  }
+</script>

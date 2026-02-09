@@ -1,0 +1,65 @@
+---
+import Card from "../ui/Card.astro";
+import { Beaker, Droplets, Sun } from "lucide-astro";
+---
+
+<section id="health" class="py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Análisis de Salud</h2>
+      <p class="text-muted-foreground">
+        Tres pilares científicos para un crecimiento exponencial.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <Card
+        id="health-1"
+        className="p-8 text-center group hover:border-primary/50 transition-colors"
+      >
+        <div
+          class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary"
+        >
+          <Sun size={32} />
+        </div>
+        <h3 class="text-xl font-bold mb-4">Espectrometría UV</h3>
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Nuestra IA descompone la luz en nanómetros para ajustar la exposición
+          fotoperiódica exacta que cada especie necesita.
+        </p>
+      </Card>
+
+      <Card
+        id="health-2"
+        className="p-8 text-center group hover:border-primary/50 transition-colors"
+      >
+        <div
+          class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary"
+        >
+          <Droplets size={32} />
+        </div>
+        <h3 class="text-xl font-bold mb-4">Hidratación Osmótica</h3>
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Gestión inteligente del agua a nivel celular. Evita la asfixia
+          radicular mediante micro-impulsos de hidratación controlada.
+        </p>
+      </Card>
+
+      <Card
+        id="health-3"
+        className="p-8 text-center group hover:border-primary/50 transition-colors"
+      >
+        <div
+          class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary"
+        >
+          <Beaker size={32} />
+        </div>
+        <h3 class="text-xl font-bold mb-4">Composición del Sustrato</h3>
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Análisis continuo de macro y micronutrientes (NPK) y niveles de pH
+          para asegurar una nutrición balanceada y constante.
+        </p>
+      </Card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import Card from "../ui/Card.astro";
+import macroImg from "../../assets/macro.png";
+import hyperspectralImg from "../../assets/hyperspectral.png";
+import analysisImg from "../../assets/analysis.png";
+---
+
+<section id="features" class="py-24 bg-secondary/30">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+        Hardware de Vanguardia
+      </h2>
+      <p class="text-muted-foreground">
+        Sensores integrados de grado aeroespacial para tu sala de estar.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+      <Card
+        id="feature-1"
+        className="md:col-span-2 md:row-span-2 p-8 flex flex-col justify-between overflow-hidden"
+      >
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Sensor de Nutrientes</h3>
+          <p class="text-muted-foreground">
+            Análisis electroquímico en tiempo real del sustrato para niveles NPK
+            óptimos.
+          </p>
+        </div>
+        <div
+          class="mt-4 h-48 overflow-hidden rounded-xl border border-border/50"
+        >
+          <Image
+            src={macroImg}
+            alt="Visualización macro del sensor de nutrientes de AI-Planting analizando el sustrato"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </Card>
+
+      <Card
+        id="feature-2"
+        className="md:col-span-2 p-8 flex items-center justify-between gap-4 overflow-hidden group"
+      >
+        <div class="flex-1">
+          <h3 class="text-xl font-bold mb-2">Cámara Hiperespectral</h3>
+          <p class="text-muted-foreground text-sm">
+            Detecta estrés lumínico y enfermedades antes de que el ojo humano
+            pueda notarlo.
+          </p>
+        </div>
+        <div
+          class="w-24 h-24 shrink-0 overflow-hidden rounded-full border-2 border-primary/20 bg-background"
+        >
+          <Image
+            src={hyperspectralImg}
+            alt="Detalle de la lente hiperespectral avanzada de AI-Planting"
+            class="h-full w-full object-cover group-hover:scale-110 transition duration-500"
+          />
+        </div>
+      </Card>
+
+      <Card
+        id="feature-3"
+        className="p-6 text-center flex flex-col justify-center"
+      >
+        <h3 class="font-bold mb-2">Wi-Fi 6</h3>
+        <p class="text-xs text-muted-foreground leading-tight">
+          Conectividad ultra estable para reporte de datos constante.
+        </p>
+      </Card>
+
+      <Card
+        id="feature-4"
+        className="p-6 text-center flex flex-col justify-center"
+      >
+        <h3 class="font-bold mb-2">Solar Panel</h3>
+        <p class="text-xs text-muted-foreground leading-tight">
+          Autonomía energética total mediante paneles de alta eficiencia.
+        </p>
+      </Card>
+
+      <Card
+        id="feature-5"
+        className="md:col-span-2 p-8 flex items-center gap-6 overflow-hidden"
+      >
+        <div class="flex-1">
+          <h3 class="text-xl font-bold mb-2">Base Rotatoria (Motion Engine)</h3>
+          <p class="text-muted-foreground text-sm">
+            Motores silenciosos que rotan la maceta siguiendo la trayectoria del
+            sol durante el día.
+          </p>
+        </div>
+        <div
+          class="w-32 h-20 overflow-hidden rounded-lg border border-border/50 bg-background"
+        >
+          <Image
+            src={analysisImg}
+            alt="Mecanismo interno del motor rotatorio de AI-Planting"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </Card>
+    </div>
+  </div>
+</section>

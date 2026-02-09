@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import dashboardImg from "../../assets/Dashboard.png";
+---
+
+<section id="ecosystem" class="py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8 order-2 lg:order-1">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Ecosistema Conectado
+          </h2>
+          <p class="text-muted-foreground text-lg">
+            Control total desde cualquier dispositivo. Integración nativa con
+            Apple Home, Google Home y nuestra propia App dedicada.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div
+            class="flex gap-4 p-4 rounded-xl border border-border/50 bg-secondary/20 items-start"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0"
+            >
+              <span class="text-primary font-bold">01</span>
+            </div>
+            <div>
+              <h4 class="font-bold">Dashboard de Integraciones</h4>
+              <p class="text-sm text-muted-foreground">
+                Visualiza todos tus sensores en un solo lugar con gráficas
+                interactivas de salud.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex gap-4 p-4 rounded-xl border border-border/50 bg-secondary/20 items-start"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0"
+            >
+              <span class="text-primary font-bold">02</span>
+            </div>
+            <div>
+              <h4 class="font-bold">Notificaciones Inteligentes</h4>
+              <p class="text-sm text-muted-foreground">
+                Alertas predictivas. El sistema te avisa antes de que la planta
+                necesite agua o abono.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative order-1 lg:order-2 group">
+        <div
+          class="absolute -inset-4 bg-primary/20 rounded-[2rem] blur-2xl group-hover:bg-primary/30 transition duration-700"
+        >
+        </div>
+        <div
+          class="relative border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl"
+        >
+          <Image
+            src={dashboardImg}
+            alt="Interfaz del panel de control de AI-Planting mostrando métricas de salud de plantas e integraciones de hogar inteligente"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

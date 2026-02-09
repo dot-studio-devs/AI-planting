@@ -1,0 +1,106 @@
+---
+import Button from "../ui/Button.astro";
+---
+
+<footer class="py-20 border-t border-border bg-card">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-6">
+          <div
+            class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold"
+          >
+            A
+          </div>
+          <span class="text-xl font-bold">AI-Planting</span>
+        </div>
+        <p class="text-muted-foreground text-sm max-w-sm mb-8">
+          Tecnología de cultivo autónomo para entusiastas de la botánica y el
+          diseño sustentable.
+        </p>
+        <div class="flex gap-4">
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+              ></path></svg
+            >
+          </div>
+          <div
+            class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"
+              ></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+              ></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg
+            >
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-6">Newsletter Botánico</h4>
+        <div class="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            class="bg-background border border-border px-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary"
+          />
+          <Button size="sm">Suscribirse</Button>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-6 text-sm">Recursos</h4>
+        <ul class="space-y-4 text-sm text-muted-foreground">
+          <li>
+            <a href="#" class="hover:text-primary transition-colors"
+              >Guía de Cultivo</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary transition-colors"
+              >Documentación API</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary transition-colors"
+              >Soporte Técnico</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary transition-colors"
+              >Políticas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground"
+    >
+      <p>&copy; 2026 AI-Planting Inc. Todos los derechos reservados.</p>
+      <div class="flex gap-8">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>

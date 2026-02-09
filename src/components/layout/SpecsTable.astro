@@ -1,0 +1,34 @@
+---
+const specs = [
+  { label: "Procesador", value: "BotaniCore X1 (Neural Engine)" },
+  { label: "Sensores", value: "Espectrómetro, Humedad, pH, NPK, T DS" },
+  { label: "Material", value: "Polímero Bio-Reciclado de alta resistencia" },
+  { label: "Carga", value: "USB-C / Paneles Solares Integrados" },
+  { label: "Batería", value: "45 días de autonomía sin sol" },
+  { label: "Sustrato", value: "Capacidad de 4L a 12L (Modular)" },
+];
+---
+
+<section id="specs" class="py-24">
+  <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+    <div class="mb-12 text-center">
+      <h2 class="text-3xl font-bold">Ficha Técnica</h2>
+    </div>
+
+    <div
+      id="specs-table"
+      class="border border-border rounded-2xl overflow-hidden bg-card/50"
+    >
+      {
+        specs.map((spec, index) => (
+          <div
+            class={`grid grid-cols-2 p-6 ${index !== specs.length - 1 ? "border-b border-border" : ""} hover:bg-primary/5 transition-colors`}
+          >
+            <div class="font-bold text-sm text-foreground">{spec.label}</div>
+            <div class="text-sm text-muted-foreground">{spec.value}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

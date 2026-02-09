@@ -1,0 +1,40 @@
+---
+import Button from "../ui/Button.astro";
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
+>
+  <div
+    class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6"
+  >
+    <div class="flex items-center gap-2">
+      <div
+        class="h-8 w-8 rounded-full bg-primary flex items-center justify-center"
+      >
+        <span class="text-primary-foreground font-bold italic">A</span>
+      </div>
+      <span class="text-xl font-bold tracking-tight">AI-Planting</span>
+    </div>
+
+    <div
+      class="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground"
+    >
+      <a href="#features" class="hover:text-primary transition-colors"
+        >Características</a
+      >
+      <a href="#health" class="hover:text-primary transition-colors">Salud</a>
+      <a href="#timeline" class="hover:text-primary transition-colors"
+        >Timeline</a
+      >
+      <a href="#modes" class="hover:text-primary transition-colors">Modos</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <Button variant="outline" size="sm" className="hidden sm:inline-flex"
+        >Login</Button
+      >
+      <Button variant="primary" size="sm">Get Started</Button>
+    </div>
+  </div>
+</nav>

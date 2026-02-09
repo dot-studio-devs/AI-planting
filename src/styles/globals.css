@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020617;
+  --color-foreground: #f8fafc;
+
+  --color-primary: #10b981;
+  --color-primary-foreground: #020617;
+
+  --color-secondary: #1e293b;
+  --color-secondary-foreground: #f8fafc;
+
+  --color-accent: #3b82f6;
+  --color-accent-foreground: #ffffff;
+
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+
+  --color-card: #0f172a;
+  --color-card-foreground: #f8fafc;
+
+  --color-border: #1e293b;
+  --color-input: #1e293b;
+  --color-ring: #10b981;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-plant-green: #10b981;
+  --color-plant-dark: #064e3b;
+  --color-plant-light: #6ee7b7;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+  }
+}
+
+.placeholder-img {
+  background-color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 0.875rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed #334155;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+.tour-highlight {
+  position: relative;
+  z-index: 9999;
+}

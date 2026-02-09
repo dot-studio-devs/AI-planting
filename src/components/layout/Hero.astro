@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "../../assets/Hero.png";
+import Button from "../ui/Button.astro";
+---
+
+<section
+  id="hero"
+  class="relative pt-48 pb-20 overflow-hidden min-h-[90vh] flex items-center"
+>
+  <div
+    class="container mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10"
+  >
+    <div class="flex flex-col gap-6 text-center lg:text-left relative z-20">
+      <div id="tour-hero-target" class="scroll-mt-40 pt-10">
+        <div
+          class="inline-flex w-fit mx-auto lg:mx-0 items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4"
+        >
+          <span>Nueva Versión 2.0 disponible</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+        >
+          Reinventando el <span class="text-primary italic">Crecimiento</span> Botánico
+          con IA
+        </h1>
+      </div>
+      <p class="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
+        Nuestras macetas inteligentes utilizan redes neuronales para monitorizar
+        y optimizar la salud de tus plantas en tiempo real.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+      >
+        <Button
+          id="start-tour-btn"
+          variant="primary"
+          size="lg"
+          className="w-full sm:w-auto"
+        >
+          Comenzar Tour
+        </Button>
+        <Button
+          id="learn-more-btn"
+          variant="outline"
+          size="lg"
+          className="w-full sm:w-auto"
+        >
+          Saber más
+        </Button>
+      </div>
+    </div>
+
+    <div class="relative group z-10">
+      <div
+        class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"
+      >
+      </div>
+      <div
+        class="relative aspect-square overflow-hidden rounded-2xl border border-border"
+      >
+        <Image
+          src={heroImg}
+          alt="Vista previa de la maceta inteligente AI-Planting con diseño minimalista y sensores integrados"
+          class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          loading="eager"
+          width={800}
+          height={800}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { driver } from "driver.js";
+  import "driver.js/dist/driver.css";
+
+  const d = driver({
+    showProgress: true,
+    overlayColor: "rgba(2, 6, 23, 0.9)",
+    steps: [
+      {
+        element: "#tour-hero-target",
+        popover: {
+          title: "Bienvenidos a AI-Planting",
+          description: "La tecnología de cultivo del futuro ya está aquí.",
+          side: "top",
+          align: "center",
+        },
+      },
+      {
+        element: "#features",
+        popover: {
+          title: "Hardware de Elite",
+          description: "Sensores aeroespaciales integrados.",
+          side: "top",
+          align: "center",
+        },
+      },
+      {
+        element: "#health",
+        popover: {
+          title: "Ciencia de Datos",
+          description: "Monitorización celular constante.",
+          side: "top",
+          align: "center",
+        },
+      },
+      {
+        element: "#timeline",
+        popover: {
+          title: "Evolución Guiada",
+          description: "Optimización desde la germinación.",
+          side: "top",
+          align: "center",
+        },
+      },
+      {
+        element: "#modes",
+        popover: {
+          title: "Simulación Total",
+          description: "Crea cualquier ecosistema en minutos.",
+          side: "top",
+          align: "center",
+        },
+      },
+      {
+        element: "#specs",
+        popover: {
+          title: "Ficha Técnica",
+          description: "El cerebro detrás de todo.",
+          side: "top",
+          align: "center",
+        },
+      },
+    ],
+  });
+
+  const tourBtn = document.getElementById("start-tour-btn");
+  const learnBtn = document.getElementById("learn-more-btn");
+
+  if (tourBtn) {
+    tourBtn.onclick = (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => d.drive(), 400);
+    };
+  }
+
+  if (learnBtn) {
+    learnBtn.onclick = (e) => {
+      e.preventDefault();
+      document
+        .getElementById("features")
+        ?.scrollIntoView({ behavior: "smooth" });
+    };
+  }
+</script>
